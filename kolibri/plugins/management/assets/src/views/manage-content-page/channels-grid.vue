@@ -16,7 +16,13 @@
       <tbody class="Table__body">
         <tr v-for="(channel, idx) in channelList">
           <td><b>{{ channel.title }}<b></td>
-          <td>{{ numberOfFilesInChannel(channel.id) }}</td>
+          <td>
+            <ui-progress-circular
+              color="primary"
+              v-show="!numberOfFilesInChannel(channel.id)"
+            />
+            {{ numberOfFilesInChannel(channel.id) }}
+          </td>
           <td>{{ totalSizeOfFilesInChannel(channel.id) }}</td>
           <td>{{ lastUpdatedDate(channel.id) }}</td>
           <td>
@@ -42,9 +48,9 @@
         <p>To restore this channel, you will need to re-import it from the internet or storage device.</p>
       </div>
 
-      <div>
-        <button @click="selectedChannelIdx=null">Cancel</button>
-        <button @click="handleDeleteChannel()">Confirm</button>
+      <div class="Buttons">
+        <ui-button type="secondary" @click="selectedChannelIdx=null">Cancel</ui-button>
+        <ui-button type="primary" color="primary" @click="handleDeleteChannel()">Confirm</ui-button>
       </div>
 
     </modal>
@@ -56,7 +62,7 @@
 <script>
 
   const bytesForHumans = require('./bytesForHumans');
-  const actions = require('../../state/contentImportExportActions');
+  const actions = require('../../state/actions');
 
   module.exports = {
     data: () => ({
@@ -75,6 +81,8 @@
     },
     components: {
       modal: require('kolibri.coreVue.components.coreModal'),
+      UiButton: require('keen-ui/src/UiButton'),
+      UiProgressCircular: require('keen-ui/src/UiProgressCircular'),
     },
     methods: {
       handleDeleteChannel() {
@@ -85,7 +93,7 @@
       },
       numberOfFilesInChannel(channelId) {
         const channel = this.channelInfo[channelId];
-        return channel ? channel.numberOfFiles : this.$tr('pleaseWait');
+        return channel ? channel.numberOfFiles : '';
       },
       totalSizeOfFilesInChannel(channelId) {
         const channel = this.channelInfo[channelId];
@@ -136,6 +144,9 @@
     &__body
       td
         padding: 1rem 0
+
+  .Buttons
+    text-align: right
 
   .delete-button
     $red = rgb(255, 0 , 0)

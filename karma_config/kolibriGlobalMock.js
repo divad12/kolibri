@@ -1,4 +1,5 @@
 const sinon = require('sinon');
+const resources = require('../kolibri/core/assets/src/api-resources');
 
 class MockResource {
   constructor() {
@@ -67,20 +68,13 @@ class MockResource {
   }
 }
 
-const resourcesList = [
-  'ChannelResource',
-  'FacilityDatasetResource',
-  'FacilityResource',
-  'FileResource',
-  'RoleResource',
-  'TaskResource',
-];
-
 class KolibriMock {
   constructor() {
     this.resources = {};
 
-    resourcesList.forEach((resource) => {
+    this.resourceNames = Object.keys(resources);
+
+    this.resourceNames.forEach((resource) => {
       this.resources[resource] = new MockResource();
     });
 
@@ -88,7 +82,7 @@ class KolibriMock {
   }
 
   __resetMocks() {
-    resourcesList.forEach((resource) => {
+    this.resourceNames.forEach((resource) => {
       this.resources[resource].__resetMocks();
     });
   }
