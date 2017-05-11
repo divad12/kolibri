@@ -21,12 +21,12 @@
             :trueValue="INTERNET_SOURCE"
             v-model="selectedDrive"
           >
-            <div class="InternetSource">
-              <div class="InternetSource__icon">
+            <div class="internet-source">
+              <div class="internet-source-icon">
                 <mat-svg category="social" name="public" transform="translate(20, 0)" />
                 <mat-svg category="file" name="file_download" transform="translate(-25, 10)" fill="#00BAFF" />
               </div>
-              <div class="InternetSource__description">
+              <div class="internet-source-description">
                 <div>{{ $tr('enterChannelId') }}</div>
                 <div>{{ $tr('searchForChannel') }}</div>
               </div>
@@ -170,12 +170,12 @@
     margin: 3em 0
     min-height: $min-height
 
-  .InternetSource
+  .internet-source
     display: table
-    &__icon
+    &-icon
       display: table-cell
       vertical-align: middle
-    &__description
+    &-description
       display: table-cell
       vertical-align: middle
 

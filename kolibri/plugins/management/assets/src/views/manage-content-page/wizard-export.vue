@@ -40,7 +40,7 @@
     <div class="core-text-alert">
       {{ wizardState.error }}
     </div>
-    <div class="Buttons">
+    <div class="buttons">
       <ui-button
         type="secondary"
         @click="cancel()"
@@ -164,9 +164,9 @@
   #content-size
     font-weight: bold
     &::before
-      content: "("
+      content: '('
     &::after
-      content: ")"
+      content: ')'
 
   $min-height = 200px
 
@@ -185,7 +185,7 @@
     margin-right: 0.2em
     margin-bottom: -6px
 
-  .Buttons
+  .buttons
     text-align: right
 
   button

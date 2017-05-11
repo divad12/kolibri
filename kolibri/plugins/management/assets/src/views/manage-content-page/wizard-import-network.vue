@@ -20,7 +20,7 @@
     <div class="core-text-alert">
       {{ wizardState.error }}
     </div>
-    <div class="Buttons">
+    <div class="buttons">
       <ui-button
         type="secondary"
         name="back"
@@ -115,7 +115,7 @@
     border: 2px solid $core-action-normal
     border-radius: 4px
 
-  .Buttons
+  .buttons
     text-align: right
 
   .core-text-alert

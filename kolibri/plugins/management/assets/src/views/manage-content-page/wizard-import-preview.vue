@@ -9,23 +9,23 @@
     @back="goBack()"
   >
     <div>
-      <div v-if="Boolean(sourceMeta.error)" class="content ImportError">
+      <div v-if="Boolean(sourceMeta.error)" class="content import-error">
         <p>{{ importErrorPrompt }}</p>
       </div>
 
-      <div v-else-if="contentIsFromNetwork" class="content NetworkImport">
+      <div v-else-if="contentIsFromNetwork" class="content network-import">
         <p>{{ $tr('networkImportPrompt') }}</p>
         <b>{{ sourceMeta.sourceName }}</b>
       </div>
 
-      <div v-else class="content LocalImport">
+      <div v-else class="content local-import">
         <p>{{ localImportPrompt }}</p>
         <p v-for="channel in sourceMeta.channels">
           <b>{{ channel.name }}</b>
         </p>
       </div>
 
-      <div class="Buttons">
+      <div class="buttons">
         <ui-button
           @click="goBack()"
           name="go-back"
@@ -138,7 +138,7 @@
   .content
     margin-bottom: 20px
 
-  .Buttons
+  .buttons
     text-align: right
 
 </style>

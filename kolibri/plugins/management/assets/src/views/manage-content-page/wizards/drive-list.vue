@@ -1,5 +1,6 @@
 <template>
-  <div class="DriveList">
+
+  <div class="drive-list">
     <div v-if="drives.length === 0">
       <h2 class="core-text-alert">
         <mat-svg class="error-svg" category="alert" name="error_outline"/>
@@ -12,7 +13,7 @@
       <div
         :name="'drive-'+index"
         @click="$emit('change', drive.id)"
-        class="DriveName DriveName--enabled"
+        class="drive-list drive-list-enabled"
         v-for="(drive, index) in enabledDrives"
       >
         <ui-radio
@@ -21,13 +22,13 @@
           v-model="selectedDrive"
         >
           <div>{{ drive.name }}</div>
-          <div v-if="enabledMsg" class="DriveName__detail">
+          <div v-if="enabledMsg" class="drive-name-detail">
             {{ enabledMsg(drive) }}
           </div>
         </ui-radio>
       </div>
 
-      <div class="DriveName DriveName--disabled" v-for="(drive, index) in disabledDrives">
+      <div class="drive-name drive-name-disabled" v-for="(drive, index) in disabledDrives">
         <ui-radio
           :id="'disabled-drive-'+index"
           :trueValue="drive.id"
@@ -35,7 +36,7 @@
           v-model="selectedDrive"
         >
           <div>{{ drive.name }}</div>
-          <div class="DriveName__detail">
+          <div class="drive-name-detail">
             {{ disabledMsg }}
           </div>
         </ui-radio>
@@ -43,6 +44,7 @@
 
     </div>
   </div>
+
 </template>
 
 
@@ -90,24 +92,24 @@
   h2
     font-size: 1em
 
-  .DriveList
+  .drive-list
     &:not(first-child)
       border-top: none
 
-  .DriveName
+  .drive-name
     padding: 0.6em
     border: 1px $core-bg-canvas solid
-    &__detail
+    &-detail
       color: $core-text-annotation
       font-size: 0.7em
-    &--disabled
+    &-disabled
       color: $core-text-disabled
-    &--enabled
+    &-enabled
       cursor: pointer
       &:hover
         background-color: $core-bg-canvas
 
-  .DriveName > label
+  .drive-name > label
     cursor: pointer
     font-size: 0.9em
 

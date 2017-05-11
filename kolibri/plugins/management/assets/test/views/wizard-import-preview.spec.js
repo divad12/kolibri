@@ -37,11 +37,11 @@ function makeVm(options = {}) {
 function getElements(vm) {
   return {
     backButton: () => vm.$el.querySelector('button[name="go-back"]'),
-    errorMessage: () => vm.$el.querySelector('.ImportError'),
-    localImportContent: () => vm.$el.querySelector('.LocalImport'),
+    errorMessage: () => vm.$el.querySelector('.import-error'),
+    localImportContent: () => vm.$el.querySelector('.local-import'),
     modalBackButton: () => vm.$el.querySelector('button.header-btn.btn-back'),
     modalCancelButton: () => vm.$el.querySelector('.header-btn.btn-close'),
-    networkImportContent: () => vm.$el.querySelector('.NetworkImport'),
+    networkImportContent: () => vm.$el.querySelector('.network-import'),
     submitButton: () => vm.$el.querySelector('button[name="submit"]'),
   };
 }

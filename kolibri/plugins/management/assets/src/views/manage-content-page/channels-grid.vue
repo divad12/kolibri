@@ -1,9 +1,9 @@
 <template>
 
   <div>
-    <table class="Table">
+    <table class="table">
 
-      <thead class="Table__header">
+      <thead class="table-header">
         <tr>
           <th>{{ $tr('nameHeader') }}</th>
           <th>{{ $tr('numContentsHeader') }}</th>
@@ -13,9 +13,9 @@
         </tr>
       </thead>
 
-      <tbody class="Table__body">
+      <tbody class="table-body">
         <tr v-for="(channel, idx) in channelList">
-          <td><b>{{ channel.title }}<b></td>
+          <td><b>{{ channel.title }}</b></td>
           <td>
             <ui-progress-circular
               color="primary"
@@ -48,13 +48,13 @@
         <p>To restore this channel, you will need to re-import it from the internet or storage device.</p>
       </div>
 
-      <div class="Buttons">
+      <div class="buttons">
         <ui-button type="secondary" @click="selectedChannelIdx=null">Cancel</ui-button>
         <ui-button type="primary" color="primary" @click="handleDeleteChannel()">Confirm</ui-button>
       </div>
 
     </modal>
-  <div>
+  </div>
 
 </template>
 
@@ -133,19 +133,19 @@
 
   @require '~kolibri.styles.definitions'
 
-  .Table
+  .table
     text-align: left
     width: 100%
-    &__header
+    &-header
       th
         color: $core-text-annotation
         font-weight: normal
         font-size: 80%
-    &__body
+    &-body
       td
         padding: 1rem 0
 
-  .Buttons
+  .buttons
     text-align: right
 
   .delete-button
